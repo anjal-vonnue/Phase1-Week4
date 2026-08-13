@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clipboard</title>
+    <script src="./script.js" defer></script>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .code-content {
+        border: 1px solid darkblue;
+        width: fit-content;
+        padding: 10px;
+        height: fit-content;
+      }
+
+      pre {
+        padding: 2px;
+        background-color: blanchedalmond;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+      }
+
+      button {
+        margin-top: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="code-content">
+      <pre><code id="code">
+function calculateTotal(price, tax) {
+    const total = price + (price * tax);
+    return total.toFixed(2);
+}
+
+// Example usage:
+console.log(calculateTotal(100, 0.05)); // Outputs: 105.00
+</code></pre>
+      <button onclick="copyCode()" id="copy-btn">Copy Code</button>
+    </div>
+
+    <div>
+      <form id="form">
+        <label for="name-input">Name: </label>
+        <input id="name-input" type="text" name="name" required />
+        <label for="name-input">Location: </label>
+        <input id="location-input" type="text" name="location" required />
+        <button type="submit" id="form-submit">Submit</button>
+      </form>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      <p>Share this page</p>
+      <button onclick="sharePage()" id="share-btn">Share</button>
+    </div>
+  </body>
+</html>
