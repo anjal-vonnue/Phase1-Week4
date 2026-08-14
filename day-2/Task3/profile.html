@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cliend Side Routing</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <nav id="primary-nav">
+      <a href="./index.html" id="nav-index">HOME</a>
+      <a href="./shop.html" id="nav-shop">SHOP</a>
+      <a href="./profile.html" id="nav-profile">PROFILE</a>
+    </nav>
+    <div id="breadcrumb">
+      <p>home <span id="bread-page"></span></p>
+    </div>
+    <main id="main">
+      <section id="index" class="heading">
+        <h1>WELCOME TO HOME PAGE</h1>
+      </section>
+
+      <section id="shop" class="heading">
+        <h1>WELCOME TO SHOP PAGE</h1>
+        <select name="category" id="category">
+          <option value="">choose your category</option>
+          <option value="phones">Phones</option>
+          <option value="clothes">Clothes</option>
+          <option value="veg">Vegetables</option>
+        </select>
+
+        <select name="sort" id="sort">
+          <option value="">Sort By</option>
+          <option value="low">Low to High</option>
+          <option value="high">High to Low</option>
+        </select>
+      </section>
+
+      <section id="profile" class="heading">
+        <h1>WELCOME TO PROFILE PAGE</h1>
+      </section>
+
+      <section id="error" class="heading">
+        <h1>404 - Page Not Found</h1>
+      </section>
+    </main>
+  </body>
+</html>
