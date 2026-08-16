@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KanbanBoard</title>
     <link rel="stylesheet" href="board.css" />
-    <script src="./board.js" defer></script>
+    <script type="module" src="./board.js" defer></script>
   </head>
   <body>
     <div class="container">
-      <div class="task-column">
+      <div class="task-column" data-status="todo">
         <div>
           <h2>To Do</h2>
           <ul class="tasks">
@@ -24,7 +24,7 @@
           <button class="button_add">Add</button>
         </p>
       </div>
-      <div class="task-column">
+      <div class="task-column" data-status="progress">
         <div>
           <h2>In Progress</h2>
           <ul class="tasks">
@@ -39,7 +39,7 @@
           <button class="button_add">Add</button>
         </p>
       </div>
-      <div class="task-column">
+      <div class="task-column" data-status="done">
         <div>
           <h2>Done</h2>
           <ul class="tasks">

@@ -1,19 +1,8 @@
-// const request = indexedDB.open("kanban", 1);
+//link: https://rxdb.info/articles/indexeddb/indexeddb-tutorial.html
 
-// request.onupgradeneeded = (event) => {
-//   const db = event.target.result;
+let db;
 
-//   const store = db.createObjectStore("todos", { keyPath: "id" });
-//   console.log("sucess");
-// };
-
-// let db;
-// request.onsuccess = (event) => {
-//   db = event.target.result;
-//   console.log("database opened");
-// };
-
-function openDB() {
+export function openDB() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open("kanban", 1);
 
@@ -28,8 +17,8 @@ function openDB() {
 
     request.onsuccess = (event) => {
       console.log("database opened");
-
-      resolve(event.target.result);
+      db = event.target.result;
+      resolve(db);
     };
 
     request.onerror = (event) => {
@@ -39,94 +28,96 @@ function openDB() {
   });
 }
 
-function addRecord(todo) {
-  const tx = db.transaction("todos", "readwrite");
-  const store = tx.objectStore("todos");
-  const request = store.add(todo);
+export function addRecord(todo) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction("todos", "readwrite");
+    const store = tx.objectStore("todos");
+    const request = store.add(todo);
 
-  request.onsuccess = () => {
-    console.log("added key: ", request.result);
-  };
-
-  request.onerror = () => {
-    console.log("add failed", request.error);
-  };
-
-  tx.onerror = () => {
-    console.log("write failed", tx.error);
-  };
-}
-
-function getRecord(id) {
-  const tx = db.transaction("todos", "readonly");
-  const store = tx.objectStore("todos");
-  const request = store.get(id);
-
-  request.onsuccess = () => {
-    console.log("tods: ", request.result);
-  };
-
-  request.onerror = () => {
-    console.log("get failed: ", request.error);
-  };
-}
-
-function getAllRecord() {
-  const tx = db.transaction("todos", "readonly");
-  const store = tx.objectStore("todos");
-  const request = store.getAll();
-
-  request.onsuccess = () => {
-    console.log("all todos: ", request.result);
-  };
-
-  request.onerror = () => {
-    console.log("get all failed: ", request.error);
-  };
-}
-
-function deleteRecord(id) {
-  const tx = db.transaction("todos", "readwrite");
-  const store = tx.objectStore("todos");
-  const request = store.delete(id);
-
-  request.onsuccess = () => {
-    console.log("todo deleted: ", request.result);
-  };
-
-  request.onerror = () => {
-    console.log("delete failed: ", request.onerror);
-  };
-}
-
-function updateRecord(id, todo) {
-  const tx = db.transaction("todos", "readwrite");
-  const store = tx.objectStore("todos");
-  const getRequest = store.get(id);
-
-  getRequest.onsuccess = () => {
-    const existingTodo = getRequest.result;
-
-    existingTodo.done = todo.done;
-
-    const updateTodo = store.put(existingTodo);
-
-    updateTodo.onsuccess = () => {
-      console.log("todo updated: ", existingTodo);
+    request.onsuccess = () => {
+      console.log("added key: ", request.result);
+      resolve(request.result);
     };
 
-    updateTodo.onerror = () => {
-      console.log("update failed: ", updateTodo.error);
+    request.onerror = () => {
+      console.log("add failed", request.error);
+      reject(request.error);
     };
-  };
 
-  getRequest.onerror = () => {
-    console.log("there is not todo with id: ", id);
-  };
+    tx.onerror = () => {
+      console.log("write failed", tx.error);
+      reject(request.error);
+    };
+  });
 }
 
-let db;
+export function getRecord(id) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction("todos", "readonly");
+    const store = tx.objectStore("todos");
+    const request = store.get(id);
 
-async function initDB() {
-  db = await openDB();
+    request.onsuccess = () => {
+      console.log("tods: ", request.result);
+      resolve(request.result);
+    };
+
+    request.onerror = () => {
+      console.log("get failed: ", request.error);
+      reject(request.error);
+    };
+  });
+}
+
+export function getAllRecords() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction("todos", "readonly");
+    const store = tx.objectStore("todos");
+    const request = store.getAll();
+
+    request.onsuccess = () => {
+      //   console.log("all todos: ", request.result);
+      resolve(request.result);
+    };
+
+    request.onerror = () => {
+      console.log("get all failed: ", request.error);
+      reject(request.error);
+    };
+  });
+}
+
+export function deleteRecord(id) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction("todos", "readwrite");
+    const store = tx.objectStore("todos");
+    const request = store.delete(id);
+
+    request.onsuccess = () => {
+      console.log("todo deleted: ", request.result);
+      resolve(request.result);
+    };
+
+    request.onerror = () => {
+      console.log("delete failed: ", request.onerror);
+      reject(request.error);
+    };
+  });
+}
+
+export function updateRecord(todo) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction("todos", "readwrite");
+    const store = tx.objectStore("todos");
+
+    const request = store.put(todo);
+
+    request.onsuccess = () => {
+      resolve(todo);
+    };
+
+    request.onerror = () => {
+      reject(request.error);
+    };
+  });
 }
