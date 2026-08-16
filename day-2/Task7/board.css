@@ -42,3 +42,7 @@
 .col-color {
   background-color: azure;
 }
+
+.keyboard-task {
+  outline: 3px solid red;
+}
