@@ -1,0 +1,22 @@
+{
+  "name": "my pwa app",
+  "short_name": "pwa",
+
+  "description": "A basic webwsite with manifest json",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "white",
+  "icons": [
+    {
+      "src": "./icons/logo_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logo_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

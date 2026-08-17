@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KanbanBoard</title>
+    <link rel="stylesheet" href="board.css" />
+    <script type="module" src="./board.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="task-column" data-status="todo">
+        <div>
+          <h2>To Do</h2>
+          <ul class="tasks">
+            <li class="task task-flex">
+              <p>task 1</p>
+              <button class="button_delete">delete</button>
+            </li>
+          </ul>
+        </div>
+        <p class="add_form">
+          <input placeholder="add task" class="new_task" />
+          <button class="button_add">Add</button>
+        </p>
+      </div>
+      <div class="task-column" data-status="progress">
+        <div>
+          <h2>In Progress</h2>
+          <ul class="tasks">
+            <li class="task task-flex">
+              <p>task 1</p>
+              <button class="button_delete">delete</button>
+            </li>
+          </ul>
+        </div>
+        <p class="add_form">
+          <input placeholder="add task" class="new_task" />
+          <button class="button_add">Add</button>
+        </p>
+      </div>
+      <div class="task-column" data-status="done">
+        <div>
+          <h2>Done</h2>
+          <ul class="tasks">
+            <li class="task task-flex">
+              <p>task 1</p>
+              <button class="button_delete">delete</button>
+            </li>
+          </ul>
+        </div>
+        <p class="add_form">
+          <input placeholder="add task" class="new_task" />
+          <button class="button_add">Add</button>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

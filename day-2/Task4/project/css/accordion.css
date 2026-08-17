@@ -1,0 +1,121 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 20px;
+}
+
+h1 {
+  margin: 30px 0px;
+}
+
+/* input[type="checkbox"] {
+  display: none;
+} */
+
+.acc-container {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  border: 5px solid black;
+}
+
+.acc-container > div {
+  padding: 10px;
+  width: 391px;
+  background-color: crimson;
+  border-bottom: 5px solid black;
+}
+
+.acc-container > div:last-child {
+  border: none;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
+
+/* input[type="checkbox"]:checked + .content {
+  border-top: 1px solid black;
+  max-height: 100px;
+} */
+
+input[type="radio"] {
+  display: none;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs-container > div {
+  padding: 20px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  font-size: larger;
+  font-weight: 900;
+}
+
+.tabs-container > div:last-child {
+  border-right: 3px solid black;
+}
+
+.tab {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+}
+.tab > label {
+  position: absolute;
+  inset: 0;
+}
+
+.tab-input:checked + label {
+  color: white;
+  background-color: black;
+}
+
+.tab {
+  background-color: cyan;
+}
+
+.star-container {
+  display: flex;
+  font-size: 50px;
+}
+
+.star-container label::before {
+  content: "\2606";
+}
+
+.star-input:checked ~ label::before {
+  content: "\2605";
+  color: black;
+}
+
+.star-1 {
+  order: 5;
+}
+
+.star-2 {
+  order: 4;
+}
+
+.star-3 {
+  order: 3;
+}
+
+.star-4 {
+  order: 2;
+}
+
+.star-5 {
+  order: 1;
+}
