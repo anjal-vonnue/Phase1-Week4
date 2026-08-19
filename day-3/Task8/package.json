@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run --coverage",
-    "prepare": "husky"
+    "test": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
