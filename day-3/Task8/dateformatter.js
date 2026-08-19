@@ -16,9 +16,9 @@ const months = [
 ];
 
 export function formatDate(date, format) {
-  // if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
-  //   throw new Error("invalid date");
-  // }
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    throw new Error("invalid date");
+  }
   const day = ("0" + String(date.getDate())).slice(-2);
   console.log("day: ", day);
   const month = ("0" + String(date.getMonth() + 1)).slice(-2);
@@ -59,5 +59,3 @@ export function formatDate(date, format) {
 const date = formatDate(new Date("2026-08-18"), "relative");
 
 console.log("date: ", date);
-
-//wewe
