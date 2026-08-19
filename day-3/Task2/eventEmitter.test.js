@@ -15,6 +15,10 @@ describe("testing event Emitter", () => {
     const args = [1, 5];
     emitter.emit("mockTest", ...args);
     expect(mockFn).toHaveBeenCalledWith(...args);
+    emitter.off("mockTest", mockFn);
+    emitter.off("mockTest", mockFn);
+    emitter.emit("mockTest", ...args);
+    expect(mockFn).toHaveBeenCalledTimes(1);
   });
 });
 

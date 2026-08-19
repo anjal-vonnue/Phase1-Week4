@@ -14,20 +14,20 @@ export function mobileNavFn(drawer, hamBtn, closeBtn) {
   });
 
   drawer.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab") return;
+    if (e.key === "Tab") {
+      const links = drawer.querySelectorAll("a");
+      const first = links[0];
+      const last = links[links.length - 1];
 
-    const links = drawer.querySelectorAll("a");
-    const first = links[0];
-    const last = links[links.length - 1];
+      // if (e.shiftKey && document.activeElement === first) {
+      //   e.preventDefault();
+      //   last.focus();
+      // }
 
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    }
-
-    if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
+      // if (!e.shiftKey && document.activeElement === last) {
+      //   e.preventDefault();
+      //   first.focus();
+      // }
     }
   });
 }

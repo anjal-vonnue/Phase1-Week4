@@ -29,6 +29,20 @@ describe("testing form validator", () => {
     formChecker.validateAll(inputEl);
     expect(spanEl.textContent).toContain("correct");
   });
+
+  test("--- testing error msg", () => {
+    inputEl.value = "aaewawegawegawega";
+    formChecker.validateAll(inputEl);
+
+    expect(spanEl.textContent).toContain("error");
+  });
+
+  test("--- testing error msg", () => {
+    inputEl.value = "aa";
+    formChecker.validateAll(inputEl);
+
+    expect(spanEl.textContent).toContain("error");
+  });
 });
 
 describe("testing accordion", () => {
@@ -40,10 +54,16 @@ describe("testing accordion", () => {
   const headerEl = document.getElementById("header");
   const panelEl = document.getElementById("panel");
   accordionFn(headerEl, panelEl);
-  test("--- testing aria expanded", () => {
+  test("--- testing aria expanded true", () => {
     headerEl.click();
     // headerEl.click();
     expect(panelEl.getAttribute("aria-expanded")).toBe("true");
+  });
+
+  test("--- testing aria expanded false", () => {
+    headerEl.click();
+    // headerEl.click();
+    expect(panelEl.getAttribute("aria-expanded")).toBe("false");
   });
 });
 
@@ -65,8 +85,15 @@ describe("testing mobile nav", () => {
   const links = drawerEl.querySelectorAll("a");
   mobileNavFn(drawerEl, hamBtn, closeBtn);
   test("--- hamburger click", () => {
+    closeBtn.click();
     hamBtn.click();
     expect(drawerEl.classList).toContain("open");
+  });
+
+  test("--- close Btn click", () => {
+    hamBtn.click();
+    closeBtn.click();
+    expect(drawerEl.classList).toContain("close");
   });
 
   test("--- focus trap", async () => {
@@ -78,5 +105,7 @@ describe("testing mobile nav", () => {
     expect(document.activeElement).toBe(links[0]);
     await user.tab();
     expect(document.activeElement).toBe(links[1]);
+    await user.tab();
+    expect(document.activeElement).toBe(links[2]);
   });
 });
