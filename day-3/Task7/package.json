@@ -1,0 +1,17 @@
+{
+  "name": "task7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dateformatter.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.11",
+    "vitest": "^4.1.11"
+  }
+}
