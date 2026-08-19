@@ -1,0 +1,19 @@
+{
+  "name": "task8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.11",
+    "husky": "^9.1.7",
+    "vitest": "^4.1.11"
+  }
+}
