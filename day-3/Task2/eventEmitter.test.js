@@ -1,3 +1,5 @@
+//link: https://stevekinney.com/courses/testing/mocking-fetch-and-network-requests
+
 import { afterEach, describe, expect, it, test, vi } from "vitest";
 import { emitter, fetchJSON } from "./eventEmitter";
 
