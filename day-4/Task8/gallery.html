@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightHouse Gallery</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Gallery Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta
+      name="keywords"
+      content="gallery, images, lightbox, photos,landscape"
+    />
+    <meta name="author" content="Anjal K Biju" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:title"
+      content="GALLERY PAGE | WEEK1 PROJECT | ANJAL K BIJU | TRANING"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.anjalkbiju.com" />
+    <meta property="og:image" content="https://picsum.photos/id/870/1200/630" />
+    <meta
+      property="og:description"
+      content="Gallery Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta property="og:site_name" content="WEEK1 PROJECT | SERVICE PAGE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="GALLERY PAGE | WEEK1 PROJECT | ANJAL K BIJU | TRANING"
+    />
+    <meta
+      name="twitter:description"
+      content="Gallery Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta
+      name="twitter:image"
+      content="https://picsum.photos/id/870/1200/630"
+    />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <div class="progress-bar">
+      <div class="inner-bar"></div>
+    </div>
+    <div class="backToTop">back to top</div>
+    <header>
+      <h1>Home</h1>
+      <nav id="project-nav">
+        <div class="links" id="link">
+          <a class="new-a" href="./index.html" aria-current="page">Home</a>
+          <a class="new-a" href="./about.html">About Us</a>
+          <a class="new-a" href="./services.html">Services</a>
+          <a class="new-a" href="./team.html">Team</a>
+          <a class="new-a" href="contact.html">Contact Us</a>
+          <a class="new-a" href="gallery.html">Gallery</a>
+        </div>
+        <div class="buttons" id="button">
+          <button class="hamburger" id="hamburger">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              role="img"
+              width="24px"
+              height="24px"
+              fill="none"
+            >
+              <path
+                stroke="#111111"
+                stroke-width="1.5"
+                d="M21 5.25H3M21 12H3m18 6.75H3"
+              ></path>
+            </svg>
+          </button>
+          <button id="close-ham" class="close-ham">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+            >
+              <path
+                d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="image_container">
+        <img
+          src="https://picsum.photos/id/237/200/300"
+          class="image"
+          alt="dog"
+          fetchpriority="high"
+        />
+        <img
+          src="https://picsum.photos/id/238/200/300"
+          class="image"
+          alt="city"
+          fetchpriority="high"
+        />
+        <img
+          src="https://picsum.photos/id/239/200/300"
+          class="image"
+          alt="flower"
+          fetchpriority="high"
+        />
+        <img
+          src="https://picsum.photos/id/23/200/300"
+          class="image"
+          alt="forks"
+          fetchpriority="high"
+        />
+        <img
+          src="https://picsum.photos/id/241/200/300"
+          class="image"
+          alt="mountain"
+          fetchpriority="high"
+        />
+        <img
+          src="https://picsum.photos/id/242/200/300"
+          class="image"
+          alt="railway"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div id="lightbox_container" class="lightbox_container close">
+        <div class="close_button" id="close_button">close</div>
+        <div class="prev" id="prev_button">prev</div>
+        <div id="lightbox" class="lightbox">
+          <img src="" class="lightbox_image" />
+        </div>
+        <div class="next" id="next_button">next</div>
+      </div>
+    </main>
+    <footer>
+      <div>
+        <p>2026 WEEK1 PROJECT</p>
+        <p>ALL RIGHTS ARE RESERVED.</p>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-globe"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <button id="theme-btn" aria-pressed="false" type="button">
+          Theme Toggle
+        </button>
+      </div>
+    </footer>
+  </body>
+</html>
