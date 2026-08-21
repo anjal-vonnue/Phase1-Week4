@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en-US" data-theme="light">
+  <head>
+    <title>CONTACT PAGE | WEEK1 PROJECT | ANJAL K BIJU | TRANING</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Contact Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta
+      name="keywords"
+      content="contact, address, google maps, physical address, send messages"
+    />
+    <meta name="author" content="Anjal K Biju" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:title"
+      content="CONTACT PAGE | WEEK1 PROJECT | ANJAL K BIJU | TRANING"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.anjalkbiju.com" />
+    <meta property="og:image" content="https://picsum.photos/id/870/1200/630" />
+    <meta
+      property="og:description"
+      content="Contact Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta property="og:site_name" content="WEEK1 PROJECT | SERVICE PAGE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CONTACT PAGE | WEEK1 PROJECT | ANJAL K BIJU | TRANING"
+    />
+    <meta
+      name="twitter:description"
+      content="Contact Page for Week1 Project. Here you will find the contact address and the send msg form."
+    />
+    <meta
+      name="twitter:image"
+      content="https://picsum.photos/id/870/1200/630"
+    />
+    <meta name="theme-color" content="#4285f4" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+      integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> -->
+    <script src="js/main.js" type="module"></script>
+  </head>
+  <body>
+    <div id="toast">FORM SUBMITTED SUCCESSFULLY</div>
+    <div class="progress-bar">
+      <div class="inner-bar"></div>
+    </div>
+    <div class="backToTop">back to top</div>
+    <header>
+      <h1>Contact Us</h1>
+      <nav id="project-nav">
+        <div class="links" id="link">
+          <a class="new-a" href="./index.html" aria-current="page">Home</a>
+          <a class="new-a" href="./about.html">About Us</a>
+          <a class="new-a" href="./services.html">Services</a>
+          <a class="new-a" href="./team.html">Team</a>
+          <a class="new-a" href="contact.html">Contact Us</a>
+          <a class="new-a" href="gallery.html">Gallery</a>
+        </div>
+        <div class="buttons" id="button">
+          <button class="hamburger" id="hamburger">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              role="img"
+              width="24px"
+              height="24px"
+              fill="none"
+            >
+              <path
+                stroke="#111111"
+                stroke-width="1.5"
+                d="M21 5.25H3M21 12H3m18 6.75H3"
+              ></path>
+            </svg>
+          </button>
+          <button id="close-ham" class="close-ham">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+            >
+              <path
+                d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <br />
+      <form class="form-container" id="form-container">
+        <fieldset>
+          <legend>Send Us A Message</legend>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="input-field"
+              required
+              placeholder=""
+            />
+            <label for="name">Name*:</label>
+            <!-- <span class="success-msg">valid</span>
+            <span class="error-msg">please enter a valid input</span> -->
+            <span class="msg-span"></span>
+          </div>
+          <div class="input-wrapper">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="input-field"
+              placeholder=""
+            />
+            <label for="email">Email*: </label>
+            <span class="msg-span"></span>
+          </div>
+          <div class="input-wrapper">
+            <input
+              id="phone"
+              name="phone"
+              type="text"
+              pattern="[0-9]+"
+              required
+              class="input-field"
+              placeholder=""
+            />
+            <label for="phone">Phone*: </label>
+            <span class="msg-span"></span>
+          </div>
+          <div class="input-wrapper">
+            <label for="dept" aria-label="Department"></label>
+            <select
+              id="dept"
+              name="dept"
+              required
+              class="input-field form-select"
+            >
+              <option value="">Choose Your Department</option>
+              <option value="Software">Software</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Customer Care">Customer Care</option>
+              <option value="DevOps">DevOps</option>
+            </select>
+          </div>
+          <div class="input-wrapper">
+            <textarea
+              id="msg"
+              name="message"
+              required
+              maxlength="500"
+              class="input-field"
+              placeholder=""
+            ></textarea>
+            <label for="msg">Message: </label>
+            <span class="msg-span"></span>
+          </div>
+          <div class="check-container">
+            <label for="newletter">Subscribe to Newletter? </label>
+            <input
+              id="newletter"
+              name="newletter"
+              type="checkbox"
+              class="form-check"
+            />
+          </div>
+        </fieldset>
+        <div class="button-container">
+          <button type="submit" class="form-button" id="form-button">
+            Send Message
+          </button>
+          <button type="reset" class="form-button">Reset Form</button>
+        </div>
+      </form>
+
+      <section class="contact-address">
+        <h2>Address</h2>
+        <div id="map-container">
+          <button id="load-map">View Google Map Location</button>
+        </div>
+        <address>
+          <p><strong>Office Address:</strong></p>
+          <p>Innovate Solutions Ltd.</p>
+          <p>245 Innovation Park, Tech Avenue</p>
+          <p>Bengaluru, Karnataka 560001, India</p>
+
+          <p>
+            <strong>Phone: </strong
+            ><a href="tel:+918045678901">+91 80 4567 8901</a>
+          </p>
+
+          <p>
+            <strong>Email: </strong
+            ><a href="mailto:hello@innovatesolutions.example"
+              >hello@innovatesolutions.example</a
+            >
+          </p>
+        </address>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <p>2026 WEEK1 PROJECT</p>
+        <p>ALL RIGHTS ARE RESERVED.</p>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-globe"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <button id="theme-btn" aria-pressed="false" type="button">
+          Theme Toggle
+        </button>
+      </div>
+    </footer>
+
+    <script defer>
+      document
+        .getElementById("load-map")
+        .addEventListener("click", function () {
+          const iframe = document.createElement("iframe");
+
+          iframe.width = "500";
+          iframe.height = "250";
+          iframe.loading = "lazy";
+          iframe.title = "Location of Our Company";
+          iframe.src =
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15629.907839972335!2d76.23203921546538!3d11.660571617515092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6097295a1d8ad%3A0xb302b72edc08e0db!2sVonnue%20Innovations%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1784711445397!5m2!1sen!2sin";
+
+          document.getElementById("map-container").appendChild(iframe);
+          document.getElementById("load-map").remove();
+        });
+    </script>
+  </body>
+</html>

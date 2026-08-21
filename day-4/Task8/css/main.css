@@ -1,0 +1,68 @@
+@import url("./base.css");
+@import url("./components.css");
+@import url("./layout.css");
+@import url("./pages.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.animation-task.visible {
+  animation: fade-in 2s linear forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.services-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  border-radius: 10px;
+  margin: 30px;
+  padding: 10px;
+  height: 50px;
+  color: white;
+  background-color: red;
+  z-index: 100;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10px;
+  background-color: red;
+  width: 100%;
+  padding: 3px;
+  z-index: 1000;
+}
+
+.inner-bar {
+  background-color: aliceblue;
+  width: 0%;
+  height: 5px;
+}
+
+.image {
+  width: 200px;
+  height: 300px;
+}
