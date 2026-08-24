@@ -58,6 +58,8 @@ export function createRouter() {
 
   window.addEventListener("popstate", (e) => {
     e.preventDefault();
+    console.log("popstate clicked");
+
     changeRoute();
   });
 
