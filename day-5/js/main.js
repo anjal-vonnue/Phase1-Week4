@@ -14,7 +14,7 @@ const initialState = {
   params: {},
 };
 
-const store = createStore(initialState, reducer);
+export const store = createStore(initialState, reducer);
 
 store.dispatch({
   type: "SET_ROUTE",

@@ -1,3 +1,5 @@
+import { store } from "../main.js";
+
 console.log("router.js");
 
 export function createRouter() {
@@ -28,14 +30,31 @@ export function createRouter() {
       routes.forEach((route) => {
         if ("/detail" === route.path) {
           console.log("deatil route");
-          route.component(id);
+          // change this to state Mangements (below code)
+          // route.component(id);
+          store.dispatch({
+            type: "SET_ROUTE",
+            payload: {
+              route: "/detail",
+              params: {
+                id: id,
+              },
+            },
+          });
         }
       });
       console.log("id: " + id, " type: " + typeof id);
     } else {
       routes.forEach((route) => {
         if (currentPath === route.path) {
-          route.component();
+          // change this to state Mangements (below code)
+          // route.component();
+          store.dispatch({
+            type: "SET_ROUTE",
+            payload: {
+              route: currentPath,
+            },
+          });
         }
       });
     }
