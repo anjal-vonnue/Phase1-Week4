@@ -41,6 +41,7 @@ export function createRouter() {
               },
             },
           });
+          console.log("==== dispatch called with params:  ", id);
         }
       });
       console.log("id: " + id, " type: " + typeof id);
@@ -49,12 +50,15 @@ export function createRouter() {
         if (currentPath === route.path) {
           // change this to state Mangements (below code)
           // route.component();
+
           store.dispatch({
             type: "SET_ROUTE",
             payload: {
               route: currentPath,
             },
           });
+
+          console.log("==== dispatch called with:  ", currentPath);
         }
       });
     }

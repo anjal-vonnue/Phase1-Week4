@@ -5,7 +5,7 @@ export function reducer(state, action) {
 
       return {
         ...state,
-        path: action.payload.path,
+        route: action.payload.route,
         params: action.payload.params,
       };
     }

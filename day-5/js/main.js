@@ -8,6 +8,8 @@ import { createStore } from "./store/store.js";
 
 console.log("hello world");
 
+const app = document.getElementById("app");
+
 const initialState = {
   todos: [],
   route: "/home",
@@ -15,11 +17,12 @@ const initialState = {
 };
 
 export const store = createStore(initialState, reducer);
+store.subscribe(renderFn);
 
-store.dispatch({
-  type: "SET_ROUTE",
-  payload: initialState,
-});
+// store.dispatch({
+//   type: "SET_ROUTE",
+//   payload: initialState,
+// });
 
 const router = createRouter();
 
@@ -43,3 +46,34 @@ navALink.forEach((aTag) => {
     router.navigate(href);
   });
 });
+
+function renderFn() {
+  console.log("render function called");
+
+  const state = store.getState();
+
+  let child;
+
+  switch (state.route) {
+    case "/home": {
+      child = renderHome();
+      break;
+    }
+
+    case "/list": {
+      child = renderList();
+      break;
+    }
+
+    case "/settings": {
+      child = renderSettings();
+      break;
+    }
+
+    default: {
+      child = renderHome();
+    }
+  }
+
+  app.replaceChildren(child);
+}
