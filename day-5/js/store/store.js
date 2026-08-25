@@ -9,7 +9,20 @@ export function createStore(initialState, reducer) {
   function dispatch(action) {
     state = reducer(state, action);
 
+    console.log("===========");
+    console.log("state in the store");
+    console.log(state);
+    console.log("===========");
+
+    console.log("===listener array===");
+    console.log(listeners);
+    console.log("===listener array===");
+
     listeners.forEach((listener) => {
+      console.log("===listener===");
+      console.log(listener);
+      console.log("===listener===");
+
       listener();
     });
   }
