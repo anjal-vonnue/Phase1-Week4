@@ -28,9 +28,10 @@ export function renderList(state, router) {
   curdButton.appendChild(editTaskButton);
 
   const allTaskDiv = document.createElement("div");
-  allTaskDiv.className = "recent-task";
+  allTaskDiv.className = "recent-tasks";
   const heading = document.createElement("h3");
   heading.textContent = "All Tasks";
+  allTaskDiv.appendChild(heading);
 
   const sortedTodos = state.todos.sort((a, b) => b.createdAt - a.createdAt);
 
