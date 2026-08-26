@@ -1,18 +1,81 @@
-import { Button } from "./button.js";
+import { store } from "../main.js";
 
-export function Modal({ title, description }) {
-  const modalEl = document.createElement("div");
+export function Modal(type) {
+  const modal = document.createElement("div");
+  modal.className = "modal";
 
-  const h2El = document.createElement("h2");
-  h2El.className = "modal-title";
-  h2El.textContent = title;
+  modal.innerHTML = `
+    <div class="modal-container">
+      <h3>${type === "add" ? "ADD NEW TASK" : "EDIT TASK"}</h3>
 
-  const descEl = document.createElement("p");
-  descEl.textContent = description;
-  descEl.className = "modal-desc";
+      <form class="modal-form">
+        ${
+          type === "edit"
+            ? `
+              <label for="id">ID: </label>
+              <input id="id" type="text" required name="id" />
+            `
+            : ""
+        }
 
-  modalEl.appendChild(h2El);
-  modalEl.appendChild(descEl);
+        <label for="title">Title: </label>
+        <input id="title" type="text" required name="title" />
 
-  return modalEl;
+        <label for="description">Description: </label>
+        <input id="description" type="text" required name="description" />
+
+        <button type="submit" id="submit-button">SUBMIT</button>
+      </form>
+
+      <button type="button" class="close-button">CLOSE</button>
+    </div>
+  `;
+
+  const form = modal.querySelector(".modal-form");
+  const closeButton = modal.querySelector(".close-button");
+  const submitButton = modal.querySelector("#submit-button");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const titleValue = modal.querySelector("#title").value;
+    const descriptionValue = modal.querySelector("#description").value;
+
+    submitButton.textContent = "Loading...";
+
+    const state = store.getState();
+    const todos = state.todos;
+    const idArray = todos.map((todo) => todo.id);
+    const nextId = todos.length > 0 ? Math.max(...idArray) + 1 : 1;
+
+    const todo = {
+      id: nextId,
+      title: titleValue,
+      description: descriptionValue,
+      createdAt: Date.now(),
+      status: "pending",
+    };
+    await addTodo(todo);
+
+    submitButton.textContent = "SUBMIT";
+    console.log("Form submitted");
+  });
+
+  closeButton.addEventListener("click", () => {
+    modal.remove();
+  });
+
+  return modal;
+}
+
+function addTodo(todo) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      store.dispatch({
+        type: "ADD_TODO",
+        payload: todo,
+      });
+
+      resolve(todo);
+    }, 2000);
+  });
 }

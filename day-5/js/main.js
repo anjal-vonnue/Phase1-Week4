@@ -8,7 +8,7 @@ import { createStore } from "./store/store.js";
 
 console.log("hello world");
 
-const app = document.getElementById("app");
+export const app = document.getElementById("app");
 
 const initialState = {
   todos: [

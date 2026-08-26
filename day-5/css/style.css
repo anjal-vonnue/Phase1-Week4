@@ -170,3 +170,60 @@ a {
 .detail-task {
   background-color: darksalmon;
 }
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+
+  top: 50px;
+
+  background-color: white;
+
+  border: 2px solid black;
+}
+
+.modal h3 {
+  text-align: center;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-form input {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.modal-form button {
+  padding: 5px;
+  border: 2px solid black;
+  background-color: crimson;
+  color: white;
+}
+
+.close-button {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  background-color: hotpink;
+  border: 2px solid black;
+}
