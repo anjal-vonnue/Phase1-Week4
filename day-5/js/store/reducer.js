@@ -85,6 +85,13 @@ export function reducer(state, action) {
       };
     }
 
+    case "CLEAR_TASKS": {
+      return {
+        ...state,
+        todos: [],
+      };
+    }
+
     default: {
       return state;
     }

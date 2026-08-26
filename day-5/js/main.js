@@ -10,7 +10,7 @@ import { createStore } from "./store/store.js";
 
 export const app = document.getElementById("app");
 
-const initialState = {
+const fristState = {
   todos: [
     {
       id: 1,
@@ -38,6 +38,22 @@ const initialState = {
   params: {},
 };
 
+function loadState() {
+  const savedState = localStorage.getItem("task-spa");
+
+  if (!savedState) {
+    return fristState;
+  }
+
+  try {
+    return JSON.parse(savedState);
+  } catch (error) {
+    console.log("failed to load saved state. there for loaind dummmy state");
+    return fristState;
+  }
+}
+
+const initialState = loadState();
 export const store = createStore(initialState, reducer);
 store.subscribe(renderFn);
 

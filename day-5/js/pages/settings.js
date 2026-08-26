@@ -1,4 +1,5 @@
 import { Button } from "../components/button.js";
+import { store } from "../main.js";
 
 export function renderSettings(state) {
   console.log("this is settting page");
@@ -25,4 +26,7 @@ export function renderSettings(state) {
 
 function clearAllTask() {
   console.log("cleared all Tasks");
+  store.dispatch({
+    type: "CLEAR_TASKS",
+  });
 }
