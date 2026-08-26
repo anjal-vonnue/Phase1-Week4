@@ -35,6 +35,7 @@ a {
 .section-container {
   display: flex;
   flex-direction: column;
+  animation: fadeIn 1s ease-in forwards;
 }
 
 /* HOME SECTION */
@@ -226,4 +227,13 @@ a {
   width: 100%;
   background-color: hotpink;
   border: 2px solid black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

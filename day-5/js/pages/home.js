@@ -6,6 +6,7 @@ export function renderHome(state, router) {
   console.log("this is home page");
 
   const homeSection = document.createElement("section");
+  homeSection.className = "section-container";
 
   const overviewDiv = document.createElement("div");
   overviewDiv.className = "overview";
