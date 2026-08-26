@@ -9,6 +9,8 @@ export function createStore(initialState, reducer) {
   function dispatch(action) {
     state = reducer(state, action);
 
+    localStorage.setItem("task-spa", JSON.stringify(state));
+
     console.log("===========");
     console.log("state in the store");
     console.log(state);
