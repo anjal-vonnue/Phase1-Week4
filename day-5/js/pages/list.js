@@ -1,12 +1,89 @@
-export function renderList() {
-  console.log("this is list page");
+import { Button } from "../components/button.js";
+import { Card } from "../components/card.js";
 
-  const sectionEl = document.createElement("section");
+export function renderList(state) {
+  const section = document.createElement("section");
+  section.className = "section-container";
 
-  const h2El = document.createElement("h2");
-  h2El.textContent = "Welcome to List";
+  const curdButton = document.createElement("div");
+  curdButton.className = "crud-buttons";
 
-  sectionEl.appendChild(h2El);
+  const addTaskButton = Button({
+    text: "ADD TASK",
+    onClick: addTask,
+    type: "button",
+    className: "add-task",
+  });
 
-  return sectionEl;
+  const editTaskButton = Button({
+    text: "Edit TASK",
+    onClick: editTask,
+    type: "button",
+    className: "edit-task",
+  });
+
+  curdButton.appendChild(addTaskButton);
+  curdButton.appendChild(editTaskButton);
+
+  const allTaskDiv = document.createElement("div");
+  allTaskDiv.className = "recent-task";
+  const heading = document.createElement("h3");
+  heading.textContent = "All Tasks";
+
+  const sortedTodos = state.todos.sort((a, b) => b.createdAt - a.createdAt);
+
+  sortedTodos.forEach((todo) => {
+    const completeButton = Button({
+      text: "COMPLETED",
+      onClick: completeTask,
+      type: "button",
+    });
+
+    const undoButton = Button({
+      text: "UNDO",
+      onClick: undoTask,
+      type: "button",
+    });
+
+    const deleteButton = Button({
+      text: "DELETE",
+      onClick: deleteTask,
+      type: "button",
+    });
+
+    const card = Card({
+      title: todo.title,
+      description: todo.description,
+      createdAt: todo.createdAt,
+      status: todo.status,
+      children: [completeButton, undoButton, deleteButton],
+    });
+
+    allTaskDiv.appendChild(card);
+  });
+
+  section.appendChild(curdButton);
+  section.appendChild(allTaskDiv);
+
+  return section;
+}
+
+function addTask() {
+  console.log("add task button");
+}
+
+function editTask() {
+  console.log("edit task button");
+}
+
+function completeTask() {
+  console.log("task completed");
+}
+
+function undoTask() {
+  console.log("task undone");
+}
+
+function deleteTask() {
+  console.log("task deleted");
 }
