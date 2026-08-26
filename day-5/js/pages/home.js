@@ -62,8 +62,13 @@ export function renderHome(state, router) {
   recentTasksDiv.className = "recent-tasks";
   const recentHeading = document.createElement("h3");
   recentHeading.textContent = "Recent Tasks";
+  recentTasksDiv.appendChild(recentHeading);
 
-  state.todos.forEach((todo) => {
+  const recentTodos = state.todos
+    .sort((a, b) => b.createdAt - a.createdAt)
+    .slice(0, 7);
+
+  recentTodos.forEach((todo) => {
     const completeButton = Button({
       id: todo.id,
       text: "COMPLETED",
