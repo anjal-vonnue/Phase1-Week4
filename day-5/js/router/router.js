@@ -22,6 +22,7 @@ export function createRouter() {
   }
 
   function changeRoute() {
+    let flag = 0;
     const currentPath = getCurrentPath();
     // console.log("current path: ", currentPath);
 
@@ -29,6 +30,7 @@ export function createRouter() {
       const id = currentPath.slice("/detail/".length);
       routes.forEach((route) => {
         if ("/detail" === route.path) {
+          flag = 1;
           console.log("deatil route");
           // change this to state Mangements (below code)
           // route.component(id);
@@ -47,9 +49,12 @@ export function createRouter() {
       console.log("id: " + id, " type: " + typeof id);
     } else {
       routes.forEach((route) => {
+        console.log("check: ", currentPath === route.path);
         if (currentPath === route.path) {
           // change this to state Mangements (below code)
           // route.component();
+
+          flag = 1;
 
           store.dispatch({
             type: "SET_ROUTE",
@@ -57,9 +62,17 @@ export function createRouter() {
               route: currentPath,
             },
           });
-
-          // console.log("==== dispatch called with:  ", currentPath);
         }
+      });
+    }
+
+    if (flag === 0) {
+      console.log("ERRORORR: ", currentPath);
+      store.dispatch({
+        type: "SET_ROUTE",
+        payload: {
+          route: "/error",
+        },
       });
     }
   }
