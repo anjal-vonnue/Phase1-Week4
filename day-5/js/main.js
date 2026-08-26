@@ -11,7 +11,29 @@ console.log("hello world");
 const app = document.getElementById("app");
 
 const initialState = {
-  todos: [],
+  todos: [
+    {
+      id: 1,
+      title: "go buy a laptop",
+      description: "buy from ernalkulam",
+      createdAt: "2006-04-06",
+      status: "completed",
+    },
+    {
+      id: 2,
+      title: "wash clothes",
+      description: "use washing machine",
+      createdAt: "2006-04-06",
+      status: "pending",
+    },
+    {
+      id: 3,
+      title: "do the tasks",
+      description: "do the pending tasks",
+      createdAt: "2006-04-06",
+      status: "completed",
+    },
+  ],
   route: "/home",
   params: {},
 };
@@ -56,7 +78,7 @@ function renderFn() {
 
   switch (state.route) {
     case "/home": {
-      child = renderHome();
+      child = renderHome(state);
       break;
     }
 
@@ -71,7 +93,7 @@ function renderFn() {
     }
 
     default: {
-      child = renderHome();
+      child = renderHome(state);
     }
   }
 
