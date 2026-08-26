@@ -1,7 +1,7 @@
 export function reducer(state, action) {
   switch (action.type) {
     case "SET_ROUTE": {
-      console.log("inside reducer with: ", action.payload);
+      // console.log("inside reducer with: ", action.payload);
 
       return {
         ...state,
@@ -33,6 +33,55 @@ export function reducer(state, action) {
             return todo;
           }
         }),
+      };
+    }
+
+    case "TASK_COMPLETED": {
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload.id) {
+            return {
+              ...todo,
+              status: "completed",
+            };
+          } else {
+            return todo;
+          }
+        }),
+      };
+    }
+
+    case "TASK_UNDO": {
+      let currentStatus = state.todos.find(
+        (todo) => todo.id === action.payload.id,
+      ).status;
+
+      if (currentStatus === "pending") {
+        currentStatus = "completed";
+      } else {
+        currentStatus = "pending";
+      }
+
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload.id) {
+            return {
+              ...todo,
+              status: currentStatus,
+            };
+          } else {
+            return todo;
+          }
+        }),
+      };
+    }
+
+    case "TASK_DELETE": {
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
       };
     }
 

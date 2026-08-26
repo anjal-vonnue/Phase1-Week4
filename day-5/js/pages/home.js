@@ -1,5 +1,6 @@
 import { Button } from "../components/button.js";
 import { Card } from "../components/card.js";
+import { store } from "../main.js";
 
 export function renderHome(state, router) {
   console.log("this is home page");
@@ -63,18 +64,21 @@ export function renderHome(state, router) {
 
   state.todos.forEach((todo) => {
     const completeButton = Button({
+      id: todo.id,
       text: "COMPLETED",
       onClick: completeTask,
       type: "button",
     });
 
     const undoButton = Button({
+      id: todo.id,
       text: "UNDO",
       onClick: undoTask,
       type: "button",
     });
 
     const deleteButton = Button({
+      id: todo.id,
       text: "DELETE",
       onClick: deleteTask,
       type: "button",
@@ -98,14 +102,33 @@ export function renderHome(state, router) {
   return homeSection;
 }
 
-function completeTask() {
-  console.log("task completed");
+function completeTask(id) {
+  console.log("task completed: ", id);
+  store.dispatch({
+    type: "TASK_COMPLETED",
+    payload: {
+      id: id,
+    },
+  });
 }
 
-function undoTask() {
-  console.log("task undone");
+function undoTask(id) {
+  console.log("task undone: ", id);
+
+  store.dispatch({
+    type: "TASK_UNDO",
+    payload: {
+      id: id,
+    },
+  });
 }
 
-function deleteTask() {
-  console.log("task deleted");
+function deleteTask(id) {
+  console.log("task deleted: ", id);
+  store.dispatch({
+    type: "TASK_DELETE",
+    payload: {
+      id: id,
+    },
+  });
 }
