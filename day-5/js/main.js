@@ -16,21 +16,21 @@ const initialState = {
       id: 1,
       title: "go buy a laptop",
       description: "buy from ernalkulam",
-      createdAt: "2006-04-06",
+      createdAt: Date.now() - 5000,
       status: "completed",
     },
     {
       id: 2,
       title: "wash clothes",
       description: "use washing machine",
-      createdAt: "2006-04-06",
+      createdAt: Date.now(),
       status: "pending",
     },
     {
       id: 3,
       title: "do the tasks",
       description: "do the pending tasks",
-      createdAt: "2006-04-06",
+      createdAt: Date.now() + 2000,
       status: "completed",
     },
   ],
@@ -83,12 +83,12 @@ function renderFn() {
     }
 
     case "/list": {
-      child = renderList();
+      child = renderList(state);
       break;
     }
 
     case "/settings": {
-      child = renderSettings();
+      child = renderSettings(state);
       break;
     }
 
