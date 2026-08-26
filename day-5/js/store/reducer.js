@@ -17,6 +17,25 @@ export function reducer(state, action) {
       };
     }
 
+    case "EDIT_TODO": {
+      console.log("edit reducer: ", action.payload);
+
+      return {
+        ...state,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload.id) {
+            return {
+              ...todo,
+              title: action.payload.title,
+              description: action.payload.description,
+            };
+          } else {
+            return todo;
+          }
+        }),
+      };
+    }
+
     default: {
       return state;
     }

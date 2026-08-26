@@ -1,4 +1,10 @@
-export function Button({ text, onClick, type = "button", className = "" }) {
+export function Button({
+  text,
+  onClick,
+  type = "button",
+  className = "",
+  id = -1,
+}) {
   const button = document.createElement("button");
   button.textContent = text;
   button.className = className;
@@ -6,7 +12,7 @@ export function Button({ text, onClick, type = "button", className = "" }) {
 
   button.addEventListener("click", (e) => {
     if (typeof onClick === "function") {
-      onClick();
+      onClick(id);
     }
   });
   return button;

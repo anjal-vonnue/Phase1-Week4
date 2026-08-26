@@ -36,18 +36,21 @@ export function renderList(state, router) {
 
   sortedTodos.forEach((todo) => {
     const completeButton = Button({
+      id: todo.id,
       text: "COMPLETED",
       onClick: completeTask,
       type: "button",
     });
 
     const undoButton = Button({
+      id: todo.id,
       text: "UNDO",
       onClick: undoTask,
       type: "button",
     });
 
     const deleteButton = Button({
+      id: todo.id,
       text: "DELETE",
       onClick: deleteTask,
       type: "button",
@@ -74,7 +77,6 @@ export function renderList(state, router) {
 
 function addTask() {
   console.log("add task clicked");
-
   const modal = Modal("add");
   app.appendChild(modal);
 }
@@ -85,14 +87,14 @@ function editTask() {
   app.appendChild(modal);
 }
 
-function completeTask() {
-  console.log("task completed");
+function completeTask(id) {
+  console.log("task completed: ", id);
 }
 
-function undoTask() {
-  console.log("task undone");
+function undoTask(id) {
+  console.log("task undone: ", id);
 }
 
-function deleteTask() {
-  console.log("task deleted");
+function deleteTask(id) {
+  console.log("task deleted: ", id);
 }

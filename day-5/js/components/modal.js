@@ -13,7 +13,7 @@ export function Modal(type) {
           type === "edit"
             ? `
               <label for="id">ID: </label>
-              <input id="id" type="text" required name="id" />
+              <input id="todo-id" type="text" required name="id" />
             `
             : ""
         }
@@ -37,27 +37,45 @@ export function Modal(type) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const titleValue = modal.querySelector("#title").value;
     const descriptionValue = modal.querySelector("#description").value;
 
-    submitButton.textContent = "Loading...";
+    if (type === "add") {
+      submitButton.textContent = "Loading...";
 
-    const state = store.getState();
-    const todos = state.todos;
-    const idArray = todos.map((todo) => todo.id);
-    const nextId = todos.length > 0 ? Math.max(...idArray) + 1 : 1;
+      const state = store.getState();
+      const todos = state.todos;
+      const idArray = todos.map((todo) => todo.id);
+      const nextId = todos.length > 0 ? Math.max(...idArray) + 1 : 1;
 
-    const todo = {
-      id: nextId,
-      title: titleValue,
-      description: descriptionValue,
-      createdAt: Date.now(),
-      status: "pending",
-    };
-    await addTodo(todo);
+      const todo = {
+        id: nextId,
+        title: titleValue,
+        description: descriptionValue,
+        createdAt: Date.now(),
+        status: "pending",
+      };
+      await addTodo(todo);
 
-    submitButton.textContent = "SUBMIT";
-    console.log("Form submitted");
+      submitButton.textContent = "SUBMIT";
+      console.log("Form submitted");
+    }
+
+    if (type === "edit") {
+      const idValue = modal.querySelector("#todo-id").value;
+      submitButton.textContent = "Editing...";
+
+      const todo = {
+        id: Number(idValue),
+        title: titleValue,
+        description: descriptionValue,
+      };
+
+      await editTodo(todo);
+      submitButton.textContent = "SUBMIT";
+      console.log("task edit submitted");
+    }
   });
 
   closeButton.addEventListener("click", () => {
@@ -72,6 +90,19 @@ function addTodo(todo) {
     setTimeout(() => {
       store.dispatch({
         type: "ADD_TODO",
+        payload: todo,
+      });
+
+      resolve(todo);
+    }, 2000);
+  });
+}
+
+function editTodo(todo) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      store.dispatch({
+        type: "EDIT_TODO",
         payload: todo,
       });
 
