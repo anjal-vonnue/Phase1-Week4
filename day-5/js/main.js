@@ -92,6 +92,11 @@ function renderFn() {
       break;
     }
 
+    case "/detail": {
+      child = renderDetail(state);
+      break;
+    }
+
     default: {
       child = renderHome(state);
     }

@@ -164,3 +164,9 @@ a {
   font-weight: 900;
   border: 2px dashed white;
 }
+
+/* DETAIL PAGE */
+
+.detail-task {
+  background-color: darksalmon;
+}
