@@ -79,12 +79,20 @@ function addTask() {
   console.log("add task clicked");
   const modal = Modal("add");
   app.appendChild(modal);
+  const firstInput = modal.querySelector("input");
+  console.log(firstInput);
+
+  firstInput?.focus();
 }
 
 function editTask() {
   console.log("edit task button");
   const modal = Modal("edit");
   app.appendChild(modal);
+  const firstInput = modal.querySelector("input");
+  console.log(firstInput);
+
+  firstInput?.focus();
 }
 
 function completeTask(id) {

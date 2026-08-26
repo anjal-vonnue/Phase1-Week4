@@ -35,9 +35,7 @@ export function Modal(type) {
   const closeButton = modal.querySelector(".close-button");
   const submitButton = modal.querySelector("#submit-button");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
+  async function handleSubmit() {
     const titleValue = modal.querySelector("#title").value;
     const descriptionValue = modal.querySelector("#description").value;
 
@@ -76,10 +74,23 @@ export function Modal(type) {
       submitButton.textContent = "SUBMIT";
       console.log("task edit submitted");
     }
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    await handleSubmit();
   });
 
   closeButton.addEventListener("click", () => {
     modal.remove();
+  });
+
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      modal.remove();
+    }
   });
 
   return modal;
