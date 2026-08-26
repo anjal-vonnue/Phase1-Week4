@@ -1,4 +1,5 @@
 import { renderDetail } from "./pages/detail.js";
+import { renderError } from "./pages/error.js";
 import { renderHome } from "./pages/home.js";
 import { renderList } from "./pages/list.js";
 import { renderSettings } from "./pages/settings.js";
@@ -62,7 +63,7 @@ store.subscribe(renderFn);
 //   payload: initialState,
 // });
 
-const router = createRouter();
+export const router = createRouter();
 
 router.register("/home", renderHome);
 router.register("/list", renderList);
@@ -113,8 +114,13 @@ function renderFn() {
       break;
     }
 
+    case "/error": {
+      child = renderError(router);
+      break;
+    }
+
     default: {
-      child = renderHome(state);
+      child = renderHome(state, router);
     }
   }
 
