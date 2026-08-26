@@ -1,12 +1,28 @@
-export function renderSettings() {
+import { Button } from "../components/button.js";
+
+export function renderSettings(state) {
   console.log("this is settting page");
 
-  const sectionEl = document.createElement("section");
+  const section = document.createElement("section");
+  section.className = "section-container";
 
-  const h2El = document.createElement("h2");
-  h2El.textContent = "Welcome to Settings";
+  const div = document.createElement("div");
+  div.className = "settings";
 
-  sectionEl.appendChild(h2El);
+  const clearButton = Button({
+    text: "CLEAR ALL TASKS",
+    onClick: clearAllTask,
+    type: "button",
+    className: "clear-button",
+  });
 
-  return sectionEl;
+  div.appendChild(clearButton);
+
+  section.appendChild(div);
+
+  return section;
+}
+
+function clearAllTask() {
+  console.log("cleared all Tasks");
 }
