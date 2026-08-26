@@ -10,6 +10,13 @@ export function reducer(state, action) {
       };
     }
 
+    case "ADD_TODO": {
+      return {
+        ...state,
+        todos: [...state.todos, action.payload],
+      };
+    }
+
     default: {
       return state;
     }

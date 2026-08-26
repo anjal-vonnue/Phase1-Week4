@@ -1,5 +1,7 @@
 import { Button } from "../components/button.js";
 import { Card } from "../components/card.js";
+import { Modal } from "../components/modal.js";
+import { app } from "../main.js";
 
 export function renderList(state, router) {
   const section = document.createElement("section");
@@ -71,11 +73,16 @@ export function renderList(state, router) {
 }
 
 function addTask() {
-  console.log("add task button");
+  console.log("add task clicked");
+
+  const modal = Modal("add");
+  app.appendChild(modal);
 }
 
 function editTask() {
   console.log("edit task button");
+  const modal = Modal("edit");
+  app.appendChild(modal);
 }
 
 function completeTask() {
