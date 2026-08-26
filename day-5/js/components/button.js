@@ -1,9 +1,13 @@
 export function Button({ text, onClick, type = "button", className = "" }) {
   const button = document.createElement("button");
-  button.addEventListener("click", () => {
-    onClick;
+  button.textContent = text;
+  button.className = className;
+  button.type = type;
+
+  button.addEventListener("click", (e) => {
+    if (typeof onClick === "function") {
+      onClick();
+    }
   });
-  button.setAttribute("type", type);
-  button.setAttribute("class", className);
   return button;
 }

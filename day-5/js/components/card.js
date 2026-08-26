@@ -1,20 +1,40 @@
-export function Card({ title, description, children = [] }) {
+export function Card({ title, description, createdAt, status, children = [] }) {
   const article = document.createElement("article");
+  article.className = "task";
 
-  const titleEl = document.createElement("h3");
-  titleEl.className = "card-title";
-  titleEl.textContent = title;
+  // card content
+  const cardContent = document.createElement("div");
+  cardContent.className = "task-content";
 
-  const pEl = document.createElement("p");
-  pEl.className = "card-desc";
-  pEl.textContent = description;
+  const cardTitle = document.createElement("h4");
+  cardTitle.className = "task-title";
+  cardTitle.textContent = title;
 
-  article.appendChild(titleEl);
-  article.appendChild(pEl);
+  const cardDescription = document.createElement("h5");
+  cardDescription.className = "task-desc";
+  cardDescription.textContent = description;
+
+  const createdAtP = document.createElement("p");
+  createdAtP.textContent = `Created at: ${createdAt}`;
+
+  const statusP = document.createElement("p");
+  statusP.textContent = `status: ${status}`;
+
+  cardContent.appendChild(cardTitle);
+  cardContent.appendChild(cardDescription);
+  cardContent.appendChild(createdAtP);
+  cardContent.appendChild(statusP);
+
+  //buttons
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.className = "task-buttons";
 
   children.forEach((child) => {
-    article.appendChild(child);
+    buttonsDiv.appendChild(child);
   });
+
+  article.appendChild(cardContent);
+  article.appendChild(buttonsDiv);
 
   return article;
 }
