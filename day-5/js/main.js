@@ -78,12 +78,12 @@ function renderFn() {
 
   switch (state.route) {
     case "/home": {
-      child = renderHome(state);
+      child = renderHome(state, router);
       break;
     }
 
     case "/list": {
-      child = renderList(state);
+      child = renderList(state, router);
       break;
     }
 

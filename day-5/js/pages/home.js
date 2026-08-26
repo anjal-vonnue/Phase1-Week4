@@ -1,7 +1,7 @@
 import { Button } from "../components/button.js";
 import { Card } from "../components/card.js";
 
-export function renderHome(state) {
+export function renderHome(state, router) {
   console.log("this is home page");
 
   const homeSection = document.createElement("section");
@@ -81,11 +81,13 @@ export function renderHome(state) {
     });
 
     const card = Card({
+      id: todo.id,
       title: todo.title,
       description: todo.description,
       createdAt: todo.createdAt,
       status: todo.status,
       children: [completeButton, undoButton, deleteButton],
+      router: router,
     });
 
     recentTasksDiv.appendChild(card);

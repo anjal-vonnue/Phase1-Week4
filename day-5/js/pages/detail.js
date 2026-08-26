@@ -41,6 +41,7 @@ export function renderDetail(state) {
   });
 
   const card = Card({
+    id: todo.id,
     title: todo.title,
     description: todo.description,
     createdAt: todo.createdAt,
