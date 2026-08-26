@@ -39,40 +39,45 @@ export function Modal(type) {
     const titleValue = modal.querySelector("#title").value;
     const descriptionValue = modal.querySelector("#description").value;
 
-    if (type === "add") {
-      submitButton.textContent = "Loading...";
+    try {
+      if (type === "add") {
+        submitButton.textContent = "Loading...";
 
-      const state = store.getState();
-      const todos = state.todos;
-      const idArray = todos.map((todo) => todo.id);
-      const nextId = todos.length > 0 ? Math.max(...idArray) + 1 : 1;
+        const state = store.getState();
+        const todos = state.todos;
+        const idArray = todos.map((todo) => todo.id);
+        const nextId = todos.length > 0 ? Math.max(...idArray) + 1 : 1;
 
-      const todo = {
-        id: nextId,
-        title: titleValue,
-        description: descriptionValue,
-        createdAt: Date.now(),
-        status: "pending",
-      };
-      await addTodo(todo);
+        const todo = {
+          id: nextId,
+          title: titleValue,
+          description: descriptionValue,
+          createdAt: Date.now(),
+          status: "pending",
+        };
+        await addTodo(todo);
 
-      submitButton.textContent = "SUBMIT";
-      console.log("Form submitted");
-    }
+        submitButton.textContent = "SUBMIT";
+        console.log("Form submitted");
+      }
 
-    if (type === "edit") {
-      const idValue = modal.querySelector("#todo-id").value;
-      submitButton.textContent = "Editing...";
+      if (type === "edit") {
+        const idValue = modal.querySelector("#todo-id").value;
+        submitButton.textContent = "Editing...";
 
-      const todo = {
-        id: Number(idValue),
-        title: titleValue,
-        description: descriptionValue,
-      };
+        const todo = {
+          id: Number(idValue),
+          title: titleValue,
+          description: descriptionValue,
+        };
 
-      await editTodo(todo);
-      submitButton.textContent = "SUBMIT";
-      console.log("task edit submitted");
+        await editTodo(todo);
+        submitButton.textContent = "SUBMIT";
+        console.log("task edit submitted");
+      }
+    } catch (error) {
+      alert(error.message);
+      submitButton.textContent = "RETRY";
     }
   }
 
@@ -97,27 +102,38 @@ export function Modal(type) {
 }
 
 function addTodo(todo) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      store.dispatch({
-        type: "ADD_TODO",
-        payload: todo,
-      });
+      const success = Math.random() < 0.5;
 
-      resolve(todo);
+      if (success) {
+        store.dispatch({
+          type: "ADD_TODO",
+          payload: todo,
+        });
+
+        resolve(todo);
+      } else {
+        reject(new Error("error while adding todo to the server"));
+      }
     }, 2000);
   });
 }
 
 function editTodo(todo) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      store.dispatch({
-        type: "EDIT_TODO",
-        payload: todo,
-      });
+      const success = Math.random() < 0.5;
+      if (success) {
+        store.dispatch({
+          type: "EDIT_TODO",
+          payload: todo,
+        });
 
-      resolve(todo);
+        resolve(todo);
+      } else {
+        reject(new Error("error while editing todo"));
+      }
     }, 2000);
   });
 }
