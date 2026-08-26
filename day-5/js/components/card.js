@@ -1,4 +1,12 @@
-export function Card({ title, description, createdAt, status, children = [] }) {
+export function Card({
+  id,
+  title,
+  description,
+  createdAt,
+  status,
+  children = [],
+  router = null,
+}) {
   const article = document.createElement("article");
   article.className = "task";
 
@@ -8,7 +16,7 @@ export function Card({ title, description, createdAt, status, children = [] }) {
 
   const cardTitle = document.createElement("h4");
   cardTitle.className = "task-title";
-  cardTitle.textContent = title;
+  cardTitle.textContent = `${id}: ${title}`;
 
   const cardDescription = document.createElement("h5");
   cardDescription.className = "task-desc";
@@ -24,6 +32,11 @@ export function Card({ title, description, createdAt, status, children = [] }) {
   cardContent.appendChild(cardDescription);
   cardContent.appendChild(createdAtP);
   cardContent.appendChild(statusP);
+  if (router !== null) {
+    cardContent.addEventListener("click", (e) => {
+      router.navigate(`/detail/${id}`);
+    });
+  }
 
   //buttons
   const buttonsDiv = document.createElement("div");

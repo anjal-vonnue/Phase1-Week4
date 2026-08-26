@@ -1,7 +1,7 @@
 import { Button } from "../components/button.js";
 import { Card } from "../components/card.js";
 
-export function renderList(state) {
+export function renderList(state, router) {
   const section = document.createElement("section");
   section.className = "section-container";
 
@@ -16,7 +16,7 @@ export function renderList(state) {
   });
 
   const editTaskButton = Button({
-    text: "Edit TASK",
+    text: "EDIT TASK",
     onClick: editTask,
     type: "button",
     className: "edit-task",
@@ -52,11 +52,13 @@ export function renderList(state) {
     });
 
     const card = Card({
+      id: todo.id,
       title: todo.title,
       description: todo.description,
       createdAt: todo.createdAt,
       status: todo.status,
       children: [completeButton, undoButton, deleteButton],
+      router: router,
     });
 
     allTaskDiv.appendChild(card);
