@@ -63,7 +63,7 @@ store.subscribe(renderFn);
 //   payload: initialState,
 // });
 
-export const router = createRouter();
+export const router = createRouter(store);
 
 router.register("/home", renderHome);
 router.register("/list", renderList);
