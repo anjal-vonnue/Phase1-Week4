@@ -1,7 +1,7 @@
 import { Button } from "../components/button.js";
 import { Card } from "../components/card.js";
 import { Modal } from "../components/modal.js";
-import { app } from "../main.js";
+import { app, store } from "../main.js";
 
 export function renderList(state, router) {
   const section = document.createElement("section");
@@ -89,12 +89,31 @@ function editTask() {
 
 function completeTask(id) {
   console.log("task completed: ", id);
+  store.dispatch({
+    type: "TASK_COMPLETED",
+    payload: {
+      id: id,
+    },
+  });
 }
 
 function undoTask(id) {
   console.log("task undone: ", id);
+
+  store.dispatch({
+    type: "TASK_UNDO",
+    payload: {
+      id: id,
+    },
+  });
 }
 
 function deleteTask(id) {
   console.log("task deleted: ", id);
+  store.dispatch({
+    type: "TASK_DELETE",
+    payload: {
+      id: id,
+    },
+  });
 }

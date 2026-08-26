@@ -6,7 +6,7 @@ import { createRouter } from "./router/router.js";
 import { reducer } from "./store/reducer.js";
 import { createStore } from "./store/store.js";
 
-console.log("hello world");
+// console.log("hello world");
 
 export const app = document.getElementById("app");
 

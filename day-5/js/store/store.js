@@ -14,15 +14,7 @@ export function createStore(initialState, reducer) {
     console.log(state);
     console.log("===========");
 
-    console.log("===listener array===");
-    console.log(listeners);
-    console.log("===listener array===");
-
     listeners.forEach((listener) => {
-      console.log("===listener===");
-      console.log(listener);
-      console.log("===listener===");
-
       listener();
     });
   }

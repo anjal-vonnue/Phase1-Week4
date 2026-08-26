@@ -1,12 +1,12 @@
 import { store } from "../main.js";
 
-console.log("router.js");
+// console.log("router.js");
 
 export function createRouter() {
   const routes = [];
 
   function register(path, component) {
-    console.log("path: " + path + " component: " + component);
+    // console.log("path: " + path + " component: " + component);
 
     routes.push({
       path: path,
@@ -23,7 +23,7 @@ export function createRouter() {
 
   function changeRoute() {
     const currentPath = getCurrentPath();
-    console.log("current path: ", currentPath);
+    // console.log("current path: ", currentPath);
 
     if (currentPath.startsWith("/detail")) {
       const id = currentPath.slice("/detail/".length);
@@ -41,7 +41,7 @@ export function createRouter() {
               },
             },
           });
-          console.log("==== dispatch called with params:  ", id);
+          // console.log("==== dispatch called with params:  ", id);
         }
       });
       console.log("id: " + id, " type: " + typeof id);
@@ -58,7 +58,7 @@ export function createRouter() {
             },
           });
 
-          console.log("==== dispatch called with:  ", currentPath);
+          // console.log("==== dispatch called with:  ", currentPath);
         }
       });
     }
@@ -71,7 +71,7 @@ export function createRouter() {
     if (pathname.startsWith(basePath)) {
       const path = pathname.slice(basePath.length);
 
-      console.log(path);
+      // console.log(path);
 
       return path;
     } else {
