@@ -1,8 +1,8 @@
-import { store } from "../main.js";
+// import { store } from "../main.js";
 
 // console.log("router.js");
 
-export function createRouter() {
+export function createRouter(store) {
   const routes = [];
 
   function register(path, component) {
@@ -105,29 +105,3 @@ export function createRouter() {
     changeRoute,
   };
 }
-
-//// for testing router
-
-// function home() {
-//   console.log("home");
-// }
-
-// function detail(id) {
-//   console.log("detail for: ", id);
-// }
-
-// const router = createRouter();
-
-// router.register("/home", home);
-
-// router.register("/detail", detail);
-
-// setTimeout(() => {
-//   router.navigate("/detail");
-// }, 2000);
-
-// setTimeout(() => {
-//   router.navigate("/home");
-// }, 4000);
-
-// router.changeRoute();
