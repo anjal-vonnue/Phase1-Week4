@@ -1,0 +1,261 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.primary-navbar {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid black;
+  background-color: gold;
+}
+
+.primary-navbar h1 {
+  margin-left: 20px;
+}
+
+.primary-navbar nav {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: larger;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+/* HOME SECTION */
+
+.overview {
+  margin: 0px 5px 5px;
+  /* background-color: red; */
+  /* padding: 15px; */
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.total-tasks {
+  margin: 5px;
+  padding: 15px;
+  border: 2px solid black;
+  background-color: cadetblue;
+}
+
+.tasks-status {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 15px;
+  border: 2px solid black;
+  background-color: cadetblue;
+}
+
+/* RECENT TASKS */
+
+.recent-tasks {
+  margin: 0px 5px 5px;
+  border: 2px solid black;
+}
+
+.recent-tasks h3 {
+  text-align: center;
+}
+
+.task {
+  margin: 5px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task h4 {
+  font-size: 24px;
+}
+
+.task h5 {
+  font-size: 18px;
+}
+
+.task-content {
+  margin: 5px;
+}
+
+.task-buttons {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-buttons button {
+  border: 2px solid black;
+}
+
+.task-buttons button:nth-child(1) {
+  background-color: green;
+  color: white;
+}
+
+.task-buttons button:nth-child(2) {
+  background-color: blue;
+  color: white;
+}
+
+.task-buttons button:nth-child(3) {
+  background-color: red;
+  color: white;
+}
+
+/* LIST PAGE */
+
+.crud-buttons {
+  margin: 5px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.add-task {
+  margin: 5px;
+  padding: 15px;
+  border: 2px solid black;
+  background-color: burlywood;
+}
+
+.edit-task {
+  margin: 5px 5px 5px 0px;
+  padding: 15px;
+  border: 2px solid black;
+  background-color: orange;
+}
+
+/* SETTING PAGE */
+
+.settings {
+  margin: 5px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-button {
+  margin: 5px;
+  padding: 15px;
+  background-color: red;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  border: 2px solid black;
+}
+
+/* DETAIL PAGE */
+
+.detail-task {
+  background-color: darksalmon;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+
+  top: 50px;
+
+  background-color: white;
+
+  border: 2px solid black;
+}
+
+.modal h3 {
+  text-align: center;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-form input {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.modal-form button {
+  padding: 5px;
+  border: 2px solid black;
+  background-color: crimson;
+  color: white;
+}
+
+.close-button {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  background-color: hotpink;
+  border: 2px solid black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.no-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.no-task h1 {
+  margin-left: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: dimgrey;
+  color: white;
+}
