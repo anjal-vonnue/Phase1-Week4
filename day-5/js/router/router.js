@@ -15,7 +15,7 @@ export function createRouter(store) {
   }
 
   function navigate(path) {
-    const url = `/day-5/#${path}`;
+    const url = `Phase1-Week4/day-5/#${path}`;
 
     window.history.pushState({}, "", url);
     changeRoute();
