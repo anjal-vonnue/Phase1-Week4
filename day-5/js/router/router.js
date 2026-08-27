@@ -15,7 +15,7 @@ export function createRouter(store) {
   }
 
   function navigate(path) {
-    const url = `/day-5/index.html${path}`;
+    const url = `/day-5/#${path}`;
 
     window.history.pushState({}, "", url);
     changeRoute();
@@ -78,15 +78,12 @@ export function createRouter(store) {
   }
 
   function getCurrentPath() {
-    const pathname = window.location.pathname;
-    const basePath = "/day-5/index.html";
+    const pathname = window.location.hash.slice(1);
 
-    if (pathname.startsWith(basePath)) {
-      const path = pathname.slice(basePath.length);
+    if (pathname) {
+      console.log("=== pathname: ", pathname);
 
-      // console.log(path);
-
-      return path;
+      return pathname;
     } else {
       return "/home";
     }
