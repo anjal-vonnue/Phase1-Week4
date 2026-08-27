@@ -15,3 +15,6 @@ https://developer.salesforce.com/docs/platform/lwc/guide/events-create-dispatch.
 https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers
 https://nik-poltoratsky.medium.com/why-reducer-is-reducer-58e76ce1b398
 https://www.youtube.com/watch?v=k7cRY-N4mqI
+
+// vi mock hoisted error
+https://vitest.dev/api/vi.html#vi-mock
